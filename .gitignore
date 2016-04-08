@@ -1,0 +1,50 @@
+#### Examen
+
+## 2 partes
+
+##1) Generam isd un script
+##2) yo les entrego un script y le digo en que lineas expliquen o realicen comentarios
+
+########Estructurqa examen#####
+##1) menejo de bases de datos en r 
+## 1) exportar bases de datos, etiquetar, generar una base
+### de datos, recodificar, seleccionar casos, graficar
+##2) series de tiempo en r
+## declara una st, dividir st, graficar st
+### interpretar graficas con estacionalidad 
+##### tendencia y ciclo
+##2.1) como determinar estacionalidad en una st con la fn de autocorrelacion, calculo de
+## correlacion y covarianza 
+##### lunes 18 examen
+### repaso 11 de abril
+
+
+### Funcion de autocorrelacion !!
+## la auto correlacion mide la correlacion entre dos variables 
+##  separadas por k periodos
+## propiedades de la autocorrelacion
+#3 PO=1
+## -1<-PO<=1
+## simetria Pj=Pj-1
+
+install.packages("fpp")
+require (fpp)
+Acf(beer)####3 fn para conocer la autocorrelacion de los datos 
+xx<-Acf(beer,main="ACF of quarterly beer production")
+names(xx)
+xx$acf
+
+## result for first 9 lags for beer data:
+
+
+### la grafica que genra acf se le denomina correlograma y permite identificar
+## la autocorrelacion en una serie de tiempo
+
+## si hay estacionalidad, la acf en el desfase temporal sera grande y positivo
+
+nfix<- read.csv("C:\\Users\\SALA-C27\\Downloads\\n.csv")
+nfixts<- ts(nfix, start =2015, frequency = 12)
+plot.ts(nfixts)
+Acf(nfixts)
+xx<- Acf(nfixts, main ="ACF of quarterly beer production")
+xx$acf
